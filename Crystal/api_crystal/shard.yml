@@ -1,0 +1,17 @@
+name: api_crystal
+version: 0.1.0
+
+authors:
+  - your-name-here <your-email-here>
+
+targets:
+  api_crystal:
+    main: src/api_crystal.cr
+
+crystal: '>= 1.17.0'
+
+license: MIT
+
+dependencies:
+  kemal:
+    github: kemalcr/kemal
