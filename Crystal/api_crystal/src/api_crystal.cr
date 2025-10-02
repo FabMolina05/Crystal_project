@@ -1,12 +1,48 @@
 # TODO: Write documentation for `ApiCrystal`
-require "kemal"
+require "http/client"
+require "json"
+
+
+
 module ApiCrystal
   VERSION = "0.1.0"
-  
 
-  get "/" do
-    { message: "Bienvenido a mi API en Crystal 🚀" }.to_json
+  begin
+    puts "Escribe tu nombre: "
+    nombre = gets.not_nil!
+    
+    httpRequest("https://api.nationalize.io/?name=#{nombre}",Paises.paises)
+
+  rescue exception
+    puts "Hubo un fallo: #{exception.message}"
   end
+    
+end
 
-  Kemal.run
+def httpRequest(url : String, paises : Hash)
+
+  
+  inicio = Time.local
+  respuesta = HTTP::Client.get(url)
+  
+  if !respuesta.success?
+    puts respuesta.status_message
+  else 
+    datos = JSON.parse(respuesta.body)
+    paisesProbables = datos["country"]
+
+    puts "Los paises a los que puedes pertener son : \n"
+
+    paisesProbables.as_a.each do |pais|
+     paises.each_key do |paisIndex|
+      if paisIndex == pais["country_id"]
+        puts "#{paises[paisIndex]} => Probabilidad: #{pais["probability"]}" 
+      end
+     end
+    end
+
+    final= Time.local
+
+    puts "----- Tiempo de respuesta : #{(final - inicio).total_seconds} ms -----"
+  end
 end
