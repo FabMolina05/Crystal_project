@@ -25,7 +25,6 @@ module ApiCrystal
 end
 
 def httpRequest(url : String, paises : Hash)
-
   
   inicio = Time.local
   respuesta = HTTP::Client.get(url)
