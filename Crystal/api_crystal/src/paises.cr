@@ -1,5 +1,4 @@
 class Paises
-  class Paises
     PAISES = {
       "US" => "United States",
       "IT" => "Italy",
@@ -110,10 +109,6 @@ class Paises
       "NP" => "Nepal"
     }
   
-    def self.paises
-      PAISES
-    end
-  end
       def self.paises
       PAISES
     end
