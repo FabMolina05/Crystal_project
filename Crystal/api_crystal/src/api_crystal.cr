@@ -36,7 +36,7 @@ def httpRequest(url : String, paises : Hash)
     datos = JSON.parse(respuesta.body)
     paisesProbables = datos["country"]
 
-    puts "\nLos paises a los que puedes pertener son : \n"
+    puts "\n Los paises a los que puedes pertener son : \n"
 
     paisesProbables.as_a.each do |pais|
       codigo = pais["country_id"].as_s

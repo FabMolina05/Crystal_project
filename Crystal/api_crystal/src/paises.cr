@@ -109,7 +109,4 @@ class Paises
       "NP" => "Nepal"
     }
   
-      def self.paises
-      PAISES
-    end
 end
