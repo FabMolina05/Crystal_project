@@ -8,8 +8,13 @@ module ApiCrystal
   VERSION = "0.1.0"
 
   begin
-    puts "Escribe tu nombre: "
-    nombre = gets.not_nil!
+    
+    nombre = nil
+
+    until nombre && !nombre.empty?
+      puts "Escribe tu nombre: "
+      nombre = gets
+    end
     
     httpRequest("https://api.nationalize.io/?name=#{nombre}",Paises::PAISES)
 
