@@ -34,11 +34,10 @@ def httpRequest(url : String, paises : Hash)
     puts "Los paises a los que puedes pertener son : \n"
 
     paisesProbables.as_a.each do |pais|
-     paises.each_key do |paisIndex|
-      if paisIndex == pais["country_id"]
-        puts "#{paises[paisIndex]} => Probabilidad: #{pais["probability"]}" 
+      codigo = pais["country_id"].as_s
+      if nombre_pais = paises[codigo]?
+        puts "#{nombre_pais} => Probabilidad: #{pais["probability"]}"
       end
-     end
     end
 
     final= Time.local
