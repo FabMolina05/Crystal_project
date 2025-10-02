@@ -1,7 +1,7 @@
 # TODO: Write documentation for `ApiCrystal`
 require "http/client"
 require "json"
-
+require "./paises"
 
 
 module ApiCrystal
@@ -11,7 +11,7 @@ module ApiCrystal
     puts "Escribe tu nombre: "
     nombre = gets.not_nil!
     
-    httpRequest("https://api.nationalize.io/?name=#{nombre}",Paises.paises)
+    httpRequest("https://api.nationalize.io/?name=#{nombre}",Paises::PAISES)
 
   rescue exception
     puts "Hubo un fallo: #{exception.message}"
