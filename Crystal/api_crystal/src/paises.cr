@@ -1,7 +1,7 @@
 class Paises
     PAISES = {
       "US" => "United States",
-      "MD" =>  "Moldoba"
+      "MD" =>  "Moldoba",
       "IT" => "Italy",
       "FR" => "France",
       "EG" => "Egypt",
